@@ -79,6 +79,7 @@ const inputDistance = document.querySelector('.form__input--distance');
 const inputDuration = document.querySelector('.form__input--duration');
 const inputCadence = document.querySelector('.form__input--cadence');
 const inputElevation = document.querySelector('.form__input--elevation');
+const resetBtn = document.querySelector('.btn-reset');
 
 //APP CLASS
 class App {
@@ -99,6 +100,7 @@ class App {
     form.addEventListener('submit', this._newWorkout.bind(this));
     inputType.addEventListener('change', this._toggleElevationField);
     containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
+    resetBtn.addEventListener('click', this._resetApp)
   }
 
   _getPosition() {
@@ -334,7 +336,7 @@ class App {
 
   }
 
-  reset(){
+  _resetApp(){
     localStorage.removeItem('workouts');
     location.reload();
   }
